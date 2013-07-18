@@ -187,6 +187,9 @@ void export_weather_message(uint32_t opid, float degc, float rh)
     // dump header buffer
     fwrite(weather_message_header, sizeof(weather_message_header), 1, stdout);
     
+    // export observation time
+    export_uint32(seconds());
+    
     // export observation point ID
     export_uint32(opid);
     
