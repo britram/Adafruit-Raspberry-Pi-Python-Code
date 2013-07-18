@@ -228,13 +228,15 @@ int main(int argc, char **argv)
 
   opid = atoi(argv[3]);
 
-  fprintf(stderr, "Using pin #%d\n", dhtpin);
-  fprintf(stderr, "Using OPid #%d\n", opid);
+  fprintf(stderr, "Using pin %d, OPid %d\n", dhtpin, opid);
 
   // and export forever
+  fprintf(stderr, "Exporting template message...\n");
+  
   export_template_message();
   while (1) {
       if (readDHT(type, dhtpin, &degc, &rh)) {
+          fprintf(stderr, "Got temp %.1fC, RH %.1f%%, exporting...\n", degc, rh)
           export_weather_message(opid, degc, rh);
       }
       sleep(3);
