@@ -239,7 +239,7 @@ int main(int argc, char **argv)
   export_template_message();
   while (1) {
       if (readDHT(type, dhtpin, &degc, &rh)) {
-          fprintf(stderr, "Got temp %.1fC, RH %.1f%%, exporting...\n", degc, rh)
+          fprintf(stderr, "Got temp %.1fC, RH %.1f%%, exporting...\n", degc, rh);
           export_weather_message(opid, degc, rh);
       }
       sleep(3);
