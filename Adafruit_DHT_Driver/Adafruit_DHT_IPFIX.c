@@ -210,7 +210,8 @@ int main(int argc, char **argv)
 	fprintf(stderr, "example: %s 2302 4 - Read from an AM2302 connected to GPIO #4\n", argv[0]);
 	return 2;
   }
-  int type = 0;
+  
+  type = 0;
   if (strcmp(argv[1], "11") == 0) type = DHT11;
   if (strcmp(argv[1], "22") == 0) type = DHT22;
   if (strcmp(argv[1], "2302") == 0) type = AM2302;
@@ -219,14 +220,13 @@ int main(int argc, char **argv)
 	return 3;
   }
   
-  int dhtpin = atoi(argv[2]);
-
+  dhtpin = atoi(argv[2]);
   if (dhtpin <= 0) {
 	fprintf(stderr, "Please select a valid GPIO pin #\n");
 	return 3;
   }
 
-  int opid = atoi(argv[3]);
+  opid = atoi(argv[3]);
 
   fprintf(stderr, "Using pin #%d\n", dhtpin);
   fprintf(stderr, "Using OPid #%d\n", opid);
@@ -237,7 +237,7 @@ int main(int argc, char **argv)
       if (readDHT(type, dhtpin, &degc, &rh)) {
           export_weather_message(opid, degc, rh);
       }
-      
+      sleep(3);
   }
 
 } // main
