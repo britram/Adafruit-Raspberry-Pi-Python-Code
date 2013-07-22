@@ -242,7 +242,7 @@ int main(int argc, char **argv)
           fprintf(stderr, "Got temp %.1fC, RH %.1f%%, exporting...\n", degc, rh);
           export_weather_message(opid, degc, rh);
       }
-      sleep(3);
+      sleep(5);
   }
 
 } // main
