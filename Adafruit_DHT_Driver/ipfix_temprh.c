@@ -4,6 +4,20 @@
 //  Dom and Gert
 //
 
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <assert.h>
+#include <unistd.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+
 #define LINEBUF_SZ 80
 
 uint32_t seconds()
