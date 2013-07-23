@@ -104,6 +104,12 @@ int main(int argc, char **argv)
   int opid;
   float degc, rh;
 
+  if (argc != 2) {
+      fprintf(stderr, "usage: %s OPid < instream > ipfixstream\n", argv[0]);
+  }
+  
+  opid = atoi(argv[1]);
+
   // and export forever
   fprintf(stderr, "Exporting template message...\n");
   
