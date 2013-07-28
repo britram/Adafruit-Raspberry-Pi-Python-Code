@@ -112,12 +112,13 @@ int main(int argc, char **argv)
 
   // and export forever
   fprintf(stderr, "Exporting template message...\n");
-  
   export_template_message();
+  
   while (1) {
       if (fgets(linebuf, LINEBUF_SZ, stdin) &&
           (sscanf(linebuf, "%f %f", &degc, &rh) == 2)) 
       {
+          fprintf(stderr, "Exporting weather message (%.1fC %.1f%%)\n", degc, rh);
           export_weather_message(opid, degc, rh);          
       } else {
           break;
