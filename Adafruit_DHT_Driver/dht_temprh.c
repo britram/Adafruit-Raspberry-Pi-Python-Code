@@ -154,6 +154,7 @@ int main(int argc, char **argv)
   while (1) {
       if (readDHT(type, dhtpin, &degc, &rh)) {
           fprintf(stdout, "%.1f %.1f\n", degc, rh);
+          fflush(stdout);
       }
       sleep(5);
   }
